@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { TOOLS } from '@/lib/tools-registry';
 import ToolWrapper from '@/components/layout/ToolWrapper';
 import ZhConverterTool from '@/components/tools/text/ZhConverterTool';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isZh = locale === 'zh-TW';
+  return {
+    title: isZh ? '繁簡轉換' : 'Chinese Converter',
+    description: isZh ? '繁體中文與簡體中文互相轉換' : 'Convert between Traditional and Simplified Chinese',
+  };
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

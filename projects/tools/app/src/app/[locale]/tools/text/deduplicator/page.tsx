@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { TOOLS } from '@/lib/tools-registry';
 import ToolWrapper from '@/components/layout/ToolWrapper';
 import DeduplicatorTool from '@/components/tools/text/DeduplicatorTool';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isZh = locale === 'zh-TW';
+  return {
+    title: isZh ? '文字去重' : 'Line Deduplicator',
+    description: isZh ? '移除重複行，保留唯一內容' : 'Remove duplicate lines and keep unique content',
+  };
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

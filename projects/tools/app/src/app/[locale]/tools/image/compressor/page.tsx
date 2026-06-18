@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { TOOLS } from '@/lib/tools-registry';
 import ToolWrapper from '@/components/layout/ToolWrapper';
 import ImageCompressorTool from '@/components/tools/image/ImageCompressorTool';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isZh = locale === 'zh-TW';
+  return {
+    title: isZh ? '圖片壓縮' : 'Image Compressor',
+    description: isZh ? '壓縮 JPEG / PNG 圖片，不上傳伺服器' : 'Compress JPEG / PNG images in your browser, no upload needed',
+  };
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

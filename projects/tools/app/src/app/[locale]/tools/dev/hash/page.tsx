@@ -1,6 +1,16 @@
+import type { Metadata } from 'next';
 import { TOOLS } from '@/lib/tools-registry';
 import ToolWrapper from '@/components/layout/ToolWrapper';
 import HashGeneratorTool from '@/components/tools/dev/HashGeneratorTool';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isZh = locale === 'zh-TW';
+  return {
+    title: isZh ? 'Hash 產生器' : 'Hash Generator',
+    description: isZh ? '產生 MD5、SHA-1、SHA-256、SHA-512 雜湊值' : 'Generate MD5, SHA-1, SHA-256, SHA-512 hashes',
+  };
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
