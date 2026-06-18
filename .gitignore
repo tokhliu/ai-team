@@ -1,0 +1,24 @@
+# Claude Code 系統文件（不提交）
+.claude/backups/
+.claude/cache/
+.claude/file-history/
+.claude/history.jsonl
+.claude/mcp-needs-auth-cache.json
+.claude/plans/
+.claude/plugins/
+.claude/policy-limits.json
+.claude/projects/
+.claude/remote-settings.json
+.claude/session-env/
+.claude/sessions/
+.claude/settings.json
+.claude/shell-snapshots/
+.claude/tasks/
+
+# 個人文件
+morning_art.jpg
+morning_art.png
+morning_art_output/
+projects/
+snap/
+venv/
