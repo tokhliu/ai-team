@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import type { Tool } from '@/lib/tools-registry';
 import FavoriteButton from '@/components/ui/FavoriteButton';
+import RecordRecentTool from '@/components/ui/RecordRecentTool';
 
 interface Props {
   tool: Tool;
@@ -36,6 +37,8 @@ export default function ToolWrapper({ tool, titleZh, titleEn, descriptionZh, des
         </div>
         <FavoriteButton toolId={tool.id} />
       </div>
+
+      <RecordRecentTool toolId={tool.id} />
 
       {/* Tool Content */}
       <div>{children}</div>

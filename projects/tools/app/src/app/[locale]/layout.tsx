@@ -34,7 +34,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="flex min-h-screen bg-surface-primary text-text-primary">
         <NextIntlClientProvider messages={messages}>
           <Sidebar />
-          <main className="flex-1 ml-64 p-8">{children}</main>
+          <main className="flex-1 lg:ml-64 p-4 lg:p-8 min-w-0">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

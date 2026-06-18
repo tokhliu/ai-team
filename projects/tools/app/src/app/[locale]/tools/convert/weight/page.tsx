@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import ToolWrapper from '@/components/layout/ToolWrapper';
-import UnitConverterLayout from '@/components/tools/converter/UnitConverterLayout';
+import UnitConverterClient from '@/components/tools/converter/UnitConverterClient';
 import { TOOLS } from '@/lib/tools-registry';
-import { WEIGHT_UNITS } from '@/lib/tools/unit-converter/conversions';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -21,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       titleZh="重量換算" titleEn="Weight Converter"
       descriptionZh="公斤、磅、盎司、台斤等重量單位換算" descriptionEn="Convert between kilograms, pounds, ounces and more"
     >
-      <UnitConverterLayout units={WEIGHT_UNITS} defaultUnitId="kg" />
+      <UnitConverterClient category="weight" />
     </ToolWrapper>
   );
 }

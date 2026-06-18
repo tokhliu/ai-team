@@ -13,7 +13,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 border-r border-border bg-surface-secondary flex flex-col">
+    <aside className="fixed left-0 top-0 h-screen w-64 border-r border-border bg-surface-secondary hidden lg:flex flex-col z-40">
       {/* Logo */}
       <Link href={`/${locale}`} className="flex items-center gap-2 px-6 py-5 border-b border-border">
         <span className="text-accent text-xl font-mono font-bold">{'<T>'}</span>

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import ToolWrapper from '@/components/layout/ToolWrapper';
-import UnitConverterLayout from '@/components/tools/converter/UnitConverterLayout';
+import UnitConverterClient from '@/components/tools/converter/UnitConverterClient';
 import { TOOLS } from '@/lib/tools-registry';
-import { LENGTH_UNITS } from '@/lib/tools/unit-converter/conversions';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -21,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       titleZh="長度換算" titleEn="Length Converter"
       descriptionZh="公里、公尺、英里、英寸等長度單位換算" descriptionEn="Convert between kilometers, meters, miles, inches and more"
     >
-      <UnitConverterLayout units={LENGTH_UNITS} defaultUnitId="m" />
+      <UnitConverterClient category="length" />
     </ToolWrapper>
   );
 }
