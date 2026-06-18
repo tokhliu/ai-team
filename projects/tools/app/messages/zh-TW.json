@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "所有工具",
+    "text": "文字工具",
+    "dev": "開發者工具",
+    "image": "圖片工具",
+    "convert": "單位換算",
+    "number": "數字工具"
+  },
+  "home": {
+    "title": "線上工具箱",
+    "subtitle": "30+ 免費線上工具，全部在瀏覽器執行，保護您的隱私",
+    "searchPlaceholder": "搜尋工具...",
+    "noResults": "找不到相關工具",
+    "favorites": "我的最愛",
+    "recent": "最近使用",
+    "all": "全部工具"
+  },
+  "common": {
+    "copy": "複製",
+    "copied": "已複製！",
+    "clear": "清空",
+    "input": "輸入",
+    "output": "輸出",
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "addFavorite": "加入最愛",
+    "removeFavorite": "移除最愛"
+  },
+  "tools": {
+    "wordCount": { "name": "字數統計", "description": "統計文字、字元、行數與段落數" },
+    "caseConverter": { "name": "大小寫轉換", "description": "英文文字大小寫格式轉換" },
+    "fullwidthConverter": { "name": "全半形轉換", "description": "全形與半形字元互轉" },
+    "deduplicator": { "name": "文字去重", "description": "移除重複的行" },
+    "lineBreak": { "name": "換行處理", "description": "移除或轉換換行符號" },
+    "zhConverter": { "name": "繁簡轉換", "description": "繁體與簡體中文互轉" },
+    "jsonFormatter": { "name": "JSON 格式化", "description": "格式化、壓縮 JSON 資料" },
+    "base64": { "name": "Base64 編解碼", "description": "文字與 Base64 互轉" },
+    "urlEncode": { "name": "URL 編解碼", "description": "URL 百分比編碼互轉" },
+    "hashGenerator": { "name": "Hash 產生器", "description": "MD5、SHA-1、SHA-256、SHA-512 雜湊值" },
+    "regexTester": { "name": "正規表達式測試器", "description": "即時測試 Regex 匹配結果" },
+    "colorConverter": { "name": "色碼轉換", "description": "HEX、RGB、HSL、HSV 色彩格式互轉" },
+    "imageCompressor": { "name": "圖片壓縮", "description": "壓縮 JPEG / PNG 圖片，不上傳伺服器" },
+    "imageResizer": { "name": "圖片尺寸調整", "description": "調整圖片寬高尺寸" },
+    "imageConverter": { "name": "圖片格式轉換", "description": "JPEG / PNG / WebP 格式互轉" },
+    "imageToBase64": { "name": "圖片轉 Base64", "description": "圖片轉換為 Base64 Data URI" },
+    "lengthConverter": { "name": "長度換算", "description": "公尺、英里、英寸等單位換算" },
+    "weightConverter": { "name": "重量換算", "description": "公斤、磅、盎司等單位換算" },
+    "temperatureConverter": { "name": "溫度換算", "description": "攝氏、華氏、克耳文換算" },
+    "areaConverter": { "name": "面積換算", "description": "公頃、坪、英畝等單位換算" },
+    "dataSizeConverter": { "name": "資料大小換算", "description": "Byte、KB、MB、GB 等換算" },
+    "timeConverter": { "name": "時間換算", "description": "秒、分、時、天等單位換算" },
+    "baseConverter": { "name": "進制轉換", "description": "二、八、十、十六進制互轉" },
+    "randomGenerator": { "name": "隨機數產生器", "description": "產生隨機整數、UUID、字串" },
+    "numberFormat": { "name": "數字格式化", "description": "加入千分位、指定小數位數" }
+  }
+}

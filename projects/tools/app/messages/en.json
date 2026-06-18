@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "All Tools",
+    "text": "Text Tools",
+    "dev": "Developer Tools",
+    "image": "Image Tools",
+    "convert": "Unit Converter",
+    "number": "Number Tools"
+  },
+  "home": {
+    "title": "Online Toolbox",
+    "subtitle": "30+ free online tools, all running in your browser to protect your privacy",
+    "searchPlaceholder": "Search tools...",
+    "noResults": "No matching tools found",
+    "favorites": "Favorites",
+    "recent": "Recent",
+    "all": "All Tools"
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied!",
+    "clear": "Clear",
+    "input": "Input",
+    "output": "Output",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "addFavorite": "Add to Favorites",
+    "removeFavorite": "Remove from Favorites"
+  },
+  "tools": {
+    "wordCount": { "name": "Word Count", "description": "Count words, characters, lines and paragraphs" },
+    "caseConverter": { "name": "Case Converter", "description": "Convert English text case formats" },
+    "fullwidthConverter": { "name": "Full/Half Width", "description": "Convert between full-width and half-width characters" },
+    "deduplicator": { "name": "Line Deduplicator", "description": "Remove duplicate lines from text" },
+    "lineBreak": { "name": "Line Break Handler", "description": "Remove or convert line break characters" },
+    "zhConverter": { "name": "Traditional/Simplified", "description": "Convert between Traditional and Simplified Chinese" },
+    "jsonFormatter": { "name": "JSON Formatter", "description": "Format and minify JSON data" },
+    "base64": { "name": "Base64 Encoder/Decoder", "description": "Encode and decode Base64 text" },
+    "urlEncode": { "name": "URL Encoder/Decoder", "description": "URL percent-encode and decode" },
+    "hashGenerator": { "name": "Hash Generator", "description": "MD5, SHA-1, SHA-256, SHA-512 hashes" },
+    "regexTester": { "name": "Regex Tester", "description": "Test regular expressions in real time" },
+    "colorConverter": { "name": "Color Converter", "description": "Convert HEX, RGB, HSL, HSV color formats" },
+    "imageCompressor": { "name": "Image Compressor", "description": "Compress JPEG/PNG images in your browser" },
+    "imageResizer": { "name": "Image Resizer", "description": "Resize image dimensions" },
+    "imageConverter": { "name": "Image Format Converter", "description": "Convert between JPEG, PNG, and WebP" },
+    "imageToBase64": { "name": "Image to Base64", "description": "Convert images to Base64 Data URI" },
+    "lengthConverter": { "name": "Length Converter", "description": "Convert meters, miles, inches and more" },
+    "weightConverter": { "name": "Weight Converter", "description": "Convert kilograms, pounds, ounces and more" },
+    "temperatureConverter": { "name": "Temperature Converter", "description": "Convert Celsius, Fahrenheit, Kelvin" },
+    "areaConverter": { "name": "Area Converter", "description": "Convert hectares, acres and more" },
+    "dataSizeConverter": { "name": "Data Size Converter", "description": "Convert Bytes, KB, MB, GB and more" },
+    "timeConverter": { "name": "Time Converter", "description": "Convert seconds, minutes, hours, days" },
+    "baseConverter": { "name": "Base Converter", "description": "Convert between binary, octal, decimal, hex" },
+    "randomGenerator": { "name": "Random Generator", "description": "Generate random integers, UUID, strings" },
+    "numberFormat": { "name": "Number Formatter", "description": "Add thousands separators, set decimal places" }
+  }
+}
