@@ -9,13 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/spark-md5": "^3.0.5",
     "browser-image-compression": "^2.0.2",
     "lucide-react": "^1.21.0",
     "next": "16.2.9",
     "next-intl": "^4.13.0",
     "opencc-js": "^1.3.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "spark-md5": "^3.0.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
