@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Sidebar from '@/components/layout/Sidebar';
 import '../globals.css';
+
+const ADSENSE_CLIENT = 'ca-pub-7394273775012750';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -36,6 +39,13 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Sidebar />
           <main className="flex-1 lg:ml-64 p-4 lg:p-8 min-w-0">{children}</main>
         </NextIntlClientProvider>
+        <Script
+          id="google-adsense"
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
