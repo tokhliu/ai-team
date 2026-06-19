@@ -27,6 +27,44 @@
     "addFavorite": "Add to Favorites",
     "removeFavorite": "Remove from Favorites"
   },
+  "footer": {
+    "tagline": "Free online tools, privacy-first",
+    "privacy": "Privacy Policy",
+    "about": "About",
+    "contact": "Contact",
+    "rights": "All rights reserved"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: June 2026",
+    "introTitle": "Overview",
+    "intro": "ToolVerse (\"the Site\") values your privacy. This policy explains how we handle data and how third-party advertising services operate.",
+    "dataTitle": "Tools & Data Handling",
+    "data": "All tools on this Site run entirely in your browser. The text, images, or files you enter are never uploaded to our servers, nor collected or stored by us.",
+    "cookiesTitle": "Cookies & Advertising",
+    "cookies": "This Site uses Google AdSense to serve ads. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this or other websites.",
+    "googleTitle": "Google Advertising Cookies",
+    "google": "Google, as a third-party vendor, uses cookies (the DoubleClick cookie) to serve ads on this Site. These cookies enable Google and its partners to serve ads based on your visits to this Site and/or other sites.",
+    "optOutTitle": "Opting Out of Personalized Ads",
+    "optOut": "You may opt out of personalized advertising by visiting Google Ads Settings (google.com/settings/ads), or opt out of third-party vendor use of cookies for personalized advertising at aboutads.info.",
+    "thirdPartyTitle": "Third-Party Links",
+    "thirdParty": "This Site may contain links to third-party websites, which have their own privacy policies. We are not responsible for their content or privacy practices.",
+    "contactTitle": "Contact Us",
+    "contact": "If you have any questions about this Privacy Policy, please email tokhliu@gmail.com."
+  },
+  "about": {
+    "title": "About ToolVerse",
+    "p1": "ToolVerse is a free online toolbox offering 30+ practical tools for text processing, development, images, unit conversion, and numbers.",
+    "p2": "Our core principle is privacy-first — every tool runs locally in your browser. Your data never leaves your device and is never uploaded or stored.",
+    "p3": "The Site is completely free and available in both Traditional Chinese and English, helping everyone get everyday tasks done quickly and safely."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "intro": "For any questions, suggestions, or partnership inquiries, feel free to reach us via:",
+    "emailLabel": "Email",
+    "email": "tokhliu@gmail.com",
+    "response": "We'll get back to you as soon as possible."
+  },
   "tools": {
     "wordCount": {
       "name": "Word Count",

@@ -27,6 +27,44 @@
     "addFavorite": "加入最愛",
     "removeFavorite": "移除最愛"
   },
+  "footer": {
+    "tagline": "免費線上工具，隱私優先",
+    "privacy": "隱私權政策",
+    "about": "關於",
+    "contact": "聯絡我們",
+    "rights": "版權所有"
+  },
+  "privacy": {
+    "title": "隱私權政策",
+    "updated": "最後更新：2026 年 6 月",
+    "introTitle": "概述",
+    "intro": "ToolVerse（以下稱「本站」）重視您的隱私。本政策說明我們如何處理資料，以及第三方廣告服務的運作方式。",
+    "dataTitle": "工具與資料處理",
+    "data": "本站所有工具皆於您的瀏覽器本機端執行。您輸入的文字、圖片或檔案不會上傳至我們的伺服器，也不會被我們蒐集或儲存。",
+    "cookiesTitle": "Cookie 與廣告",
+    "cookies": "本站使用 Google AdSense 投放廣告。第三方廠商（包括 Google）會使用 cookie，根據您先前對本站或其他網站的造訪行為投放廣告。",
+    "googleTitle": "Google 廣告 Cookie",
+    "google": "Google 作為第三方供應商，會使用 cookie（DoubleClick cookie）在本站投放廣告。此 cookie 使 Google 及其合作夥伴能根據您造訪本站或其他網站的紀錄向您投放廣告。",
+    "optOutTitle": "停用個人化廣告",
+    "optOut": "您可以前往 Google 廣告設定（google.com/settings/ads）停用個人化廣告；或前往 aboutads.info 停用部分第三方供應商使用 cookie 進行個人化廣告。",
+    "thirdPartyTitle": "第三方連結",
+    "thirdParty": "本站可能包含第三方網站連結，這些網站有各自的隱私權政策，本站不對其內容或隱私作法負責。",
+    "contactTitle": "聯絡我們",
+    "contact": "如對本隱私權政策有任何疑問，請來信 tokhliu@gmail.com。"
+  },
+  "about": {
+    "title": "關於 ToolVerse",
+    "p1": "ToolVerse 是一套免費的線上工具箱，提供文字處理、開發者工具、圖片處理、單位換算與數字工具等 30 多種實用工具。",
+    "p2": "我們的核心理念是「隱私優先」——所有工具皆在您的瀏覽器本機端執行，您的資料不會離開您的裝置，也不會被上傳或儲存。",
+    "p3": "本站完全免費，並提供繁體中文與英文雙語介面，致力於讓每個人都能快速、安全地完成日常工作。"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "intro": "有任何問題、建議或合作需求，歡迎透過以下方式與我們聯絡：",
+    "emailLabel": "電子郵件",
+    "email": "tokhliu@gmail.com",
+    "response": "我們會盡快回覆您的來信。"
+  },
   "tools": {
     "wordCount": {
       "name": "字數統計",

@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Sidebar from '@/components/layout/Sidebar';
+import Footer from '@/components/layout/Footer';
 import '../globals.css';
 
 const ADSENSE_CLIENT = 'ca-pub-7394273775012750';
@@ -37,7 +38,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="flex min-h-screen bg-surface-primary text-text-primary">
         <NextIntlClientProvider messages={messages}>
           <Sidebar />
-          <main className="flex-1 lg:ml-64 p-4 lg:p-8 min-w-0">{children}</main>
+          <main className="flex-1 lg:ml-64 p-4 lg:p-8 min-w-0 flex flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </main>
         </NextIntlClientProvider>
         <Script
           id="google-adsense"
