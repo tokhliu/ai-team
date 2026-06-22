@@ -4,14 +4,25 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import CopyButton from '@/components/ui/CopyButton';
 
+function pad(n: number, len = 2): string {
+  return String(n).padStart(len, '0');
+}
+
+// 固定格式 YYYY-MM-DD HH:MM:SS（24 小時制、零補位）。utc=true 時以 UTC 換算。
+function formatDateTime(date: Date, utc: boolean): string {
+  const year = utc ? date.getUTCFullYear() : date.getFullYear();
+  const month = (utc ? date.getUTCMonth() : date.getMonth()) + 1;
+  const day = utc ? date.getUTCDate() : date.getDate();
+  const hours = utc ? date.getUTCHours() : date.getHours();
+  const minutes = utc ? date.getUTCMinutes() : date.getMinutes();
+  const seconds = utc ? date.getUTCSeconds() : date.getSeconds();
+  return `${pad(year, 4)}-${pad(month)}-${pad(day)} ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+}
+
 function formatDate(date: Date): { local: string; utc: string } {
   return {
-    local: date.toLocaleString(undefined, {
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit',
-      timeZoneName: 'short',
-    }),
-    utc: date.toUTCString(),
+    local: formatDateTime(date, false),
+    utc: formatDateTime(date, true),
   };
 }
 
@@ -69,8 +80,8 @@ export default function EpochConverterTool() {
         {parsed && (
           <div className="space-y-2">
             <p className="text-xs text-text-muted">{t('autoDetected')}: {parsed.unit === 's' ? t('seconds') : t('milliseconds')}</p>
-            <ResultRow label={t('localTime')} value={parsed.date.toLocaleString(undefined, { timeZoneName: 'short' })} />
-            <ResultRow label={t('utcTime')} value={parsed.date.toUTCString()} />
+            <ResultRow label={t('localTime')} value={formatDateTime(parsed.date, false)} mono />
+            <ResultRow label={t('utcTime')} value={formatDateTime(parsed.date, true)} mono />
           </div>
         )}
       </div>
