@@ -187,7 +187,10 @@
       "seconds": "秒",
       "milliseconds": "毫秒",
       "invalidTimestamp": "無效的 timestamp",
-      "autoDetected": "自動識別"
+      "autoDetected": "自動識別",
+      "selectedTimezone": "選定時區",
+      "timezonePlaceholder": "搜尋時區…",
+      "invalidTimezone": "無效的時區"
     }
   }
 }

@@ -187,7 +187,10 @@
       "seconds": "Seconds",
       "milliseconds": "Milliseconds",
       "invalidTimestamp": "Invalid timestamp",
-      "autoDetected": "Auto-detected"
+      "autoDetected": "Auto-detected",
+      "selectedTimezone": "Selected Timezone",
+      "timezonePlaceholder": "Search timezone…",
+      "invalidTimezone": "Invalid timezone"
     }
   }
 }

@@ -26,6 +26,40 @@ function formatDate(date: Date): { local: string; utc: string } {
   };
 }
 
+// 以指定 IANA 時區格式化為 YYYY-MM-DD HH:MM:SS（24 小時制）。無效時區回傳空字串。
+function formatInTimeZone(date: Date, timeZone: string): string {
+  try {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone,
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false,
+    }).formatToParts(date);
+    const get = (type: string) => parts.find(p => p.type === type)?.value ?? '';
+    // hour12:false 在部分環境午夜會回傳 "24"，正規化為 "00"
+    const hour = get('hour') === '24' ? '00' : get('hour');
+    return `${get('year')}-${get('month')}-${get('day')} ${hour}:${get('minute')}:${get('second')}`;
+  } catch {
+    return '';
+  }
+}
+
+// 常用時區置前，其餘 IANA 時區接續（去重）。fallback 給不支援 supportedValuesOf 的舊瀏覽器。
+const COMMON_TIMEZONES = [
+  'UTC', 'Asia/Taipei', 'Asia/Tokyo', 'Asia/Shanghai', 'Asia/Hong_Kong',
+  'Asia/Singapore', 'Asia/Seoul', 'Asia/Kolkata', 'Asia/Dubai',
+  'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Europe/Moscow',
+  'America/New_York', 'America/Chicago', 'America/Los_Angeles', 'America/Sao_Paulo',
+  'Australia/Sydney', 'Pacific/Auckland',
+];
+
+const ALL_TIMEZONES: string[] = (() => {
+  const all = typeof Intl.supportedValuesOf === 'function'
+    ? Intl.supportedValuesOf('timeZone')
+    : [];
+  return [...COMMON_TIMEZONES, ...all.filter(z => !COMMON_TIMEZONES.includes(z))];
+})();
+
 function parseTimestamp(raw: string): { date: Date; unit: 's' | 'ms' } | null {
   const n = Number(raw.trim());
   if (!isFinite(n) || raw.trim() === '') return null;
@@ -38,6 +72,7 @@ export default function EpochConverterTool() {
   const [now, setNow] = useState(0);
   const [tsInput, setTsInput] = useState('');
   const [dtInput, setDtInput] = useState('');
+  const [tz, setTz] = useState('UTC');
 
   useEffect(() => {
     setNow(Math.floor(Date.now() / 1000));
@@ -81,7 +116,22 @@ export default function EpochConverterTool() {
           <div className="space-y-2">
             <p className="text-xs text-text-muted">{t('autoDetected')}: {parsed.unit === 's' ? t('seconds') : t('milliseconds')}</p>
             <ResultRow label={t('localTime')} value={formatDateTime(parsed.date, false)} mono />
-            <ResultRow label={t('utcTime')} value={formatDateTime(parsed.date, true)} mono />
+            <div className="flex items-center justify-between gap-3 p-3 bg-surface-secondary border border-border rounded">
+              <input
+                type="text"
+                list="tz-list"
+                value={tz}
+                onChange={e => setTz(e.target.value)}
+                placeholder={t('timezonePlaceholder')}
+                aria-label={t('selectedTimezone')}
+                className="shrink-0 w-40 p-1.5 bg-surface-primary border border-border rounded text-xs font-mono text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors"
+              />
+              <datalist id="tz-list">
+                {ALL_TIMEZONES.map(z => <option key={z} value={z} />)}
+              </datalist>
+              <span className="text-sm text-text-primary truncate font-mono">{formatInTimeZone(parsed.date, tz) || t('invalidTimezone')}</span>
+              <CopyButton text={formatInTimeZone(parsed.date, tz)} />
+            </div>
           </div>
         )}
       </div>
