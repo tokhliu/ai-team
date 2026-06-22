@@ -189,8 +189,39 @@
       "invalidTimestamp": "Invalid timestamp",
       "autoDetected": "Auto-detected",
       "selectedTimezone": "Selected Timezone",
-      "timezonePlaceholder": "Search timezone…",
-      "invalidTimezone": "Invalid timezone"
+      "tz": {
+        "regions": {
+          "general": "General",
+          "asia": "Asia",
+          "europe": "Europe",
+          "america": "America",
+          "oceania": "Oceania"
+        },
+        "zones": {
+          "utc": "UTC",
+          "taipei": "Taipei",
+          "tokyo": "Tokyo",
+          "shanghai": "Shanghai",
+          "hongKong": "Hong Kong",
+          "singapore": "Singapore",
+          "seoul": "Seoul",
+          "bangkok": "Bangkok",
+          "kolkata": "Kolkata",
+          "dubai": "Dubai",
+          "london": "London",
+          "paris": "Paris",
+          "berlin": "Berlin",
+          "moscow": "Moscow",
+          "newYork": "New York",
+          "chicago": "Chicago",
+          "denver": "Denver",
+          "losAngeles": "Los Angeles",
+          "saoPaulo": "São Paulo",
+          "sydney": "Sydney",
+          "auckland": "Auckland",
+          "honolulu": "Honolulu"
+        }
+      }
     }
   }
 }

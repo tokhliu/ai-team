@@ -5,8 +5,8 @@
 ## What Changes
 
 - 「Timestamp → 日期」結果區**保留** Local Time 列（本地時區）
-- 原本的 **UTC Time 列改為可搜尋的時區下拉選單**：使用者選定任一時區後，該列即時顯示該 timestamp 在選定時區的 `YYYY-MM-DD HH:MM:SS`（24 小時制）
-- 下拉選單內容：常用時區排前面 + 全部 IANA 時區（來自 `Intl.supportedValuesOf('timeZone')`），支援打字搜尋過濾
+- 原本的 **UTC Time 列改為時區下拉選單**（原生 `<select>`）：使用者選定時區後，該列即時顯示該 timestamp 在選定時區的 `YYYY-MM-DD HH:MM:SS`（24 小時制）
+- 下拉選單為**精選常用時區**（~22 個），以區域 `<optgroup>` 分組（通用／亞洲／歐洲／美洲／大洋洲），使用在地化城市名稱，每個選項標示 `(UTC+offset)`（DST 正確）
 - 時區選擇器**預設選 UTC**（取代原本的 UTC 列預設行為）
 - 上方「目前時間」區塊**不變**，維持顯示本地時區
 

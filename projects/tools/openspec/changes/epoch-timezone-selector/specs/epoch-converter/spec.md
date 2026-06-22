@@ -19,9 +19,9 @@
 - **WHEN** 使用者進入頁面尚未變更時區選擇
 - **THEN** 時區選擇器 SHALL 預設為 `UTC`
 
-#### Scenario: 搜尋時區
-- **WHEN** 使用者在時區選擇器輸入關鍵字（如 `Tokyo`）
-- **THEN** 下拉清單 SHALL 過濾顯示符合的 IANA 時區供選擇；可選範圍涵蓋全部 `Intl.supportedValuesOf('timeZone')` 時區
+#### Scenario: 下拉選單分組與 offset 標示
+- **WHEN** 使用者展開時區下拉選單
+- **THEN** 選單 SHALL 提供精選常用時區，依區域分組（通用／亞洲／歐洲／美洲／大洋洲），每個選項以在地化城市名稱顯示，並標示該時區當下的 `(UTC+offset)`（隨日光節約正確變動）
 
 #### Scenario: 午夜與午後時間的 24 小時制呈現
 - **WHEN** 對應時間落在午後（如下午 1 點）

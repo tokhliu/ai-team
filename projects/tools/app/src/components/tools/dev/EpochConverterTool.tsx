@@ -44,21 +44,54 @@ function formatInTimeZone(date: Date, timeZone: string): string {
   }
 }
 
-// 常用時區置前，其餘 IANA 時區接續（去重）。fallback 給不支援 supportedValuesOf 的舊瀏覽器。
-const COMMON_TIMEZONES = [
-  'UTC', 'Asia/Taipei', 'Asia/Tokyo', 'Asia/Shanghai', 'Asia/Hong_Kong',
-  'Asia/Singapore', 'Asia/Seoul', 'Asia/Kolkata', 'Asia/Dubai',
-  'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Europe/Moscow',
-  'America/New_York', 'America/Chicago', 'America/Los_Angeles', 'America/Sao_Paulo',
-  'Australia/Sydney', 'Pacific/Auckland',
+// 精選常用時區，按區域分組。值為 IANA id，顯示名稱走 i18n（zoneKey）。
+const TZ_GROUPS: { regionKey: string; zones: { id: string; key: string }[] }[] = [
+  { regionKey: 'general', zones: [
+    { id: 'UTC', key: 'utc' },
+  ] },
+  { regionKey: 'asia', zones: [
+    { id: 'Asia/Taipei', key: 'taipei' },
+    { id: 'Asia/Tokyo', key: 'tokyo' },
+    { id: 'Asia/Shanghai', key: 'shanghai' },
+    { id: 'Asia/Hong_Kong', key: 'hongKong' },
+    { id: 'Asia/Singapore', key: 'singapore' },
+    { id: 'Asia/Seoul', key: 'seoul' },
+    { id: 'Asia/Bangkok', key: 'bangkok' },
+    { id: 'Asia/Kolkata', key: 'kolkata' },
+    { id: 'Asia/Dubai', key: 'dubai' },
+  ] },
+  { regionKey: 'europe', zones: [
+    { id: 'Europe/London', key: 'london' },
+    { id: 'Europe/Paris', key: 'paris' },
+    { id: 'Europe/Berlin', key: 'berlin' },
+    { id: 'Europe/Moscow', key: 'moscow' },
+  ] },
+  { regionKey: 'america', zones: [
+    { id: 'America/New_York', key: 'newYork' },
+    { id: 'America/Chicago', key: 'chicago' },
+    { id: 'America/Denver', key: 'denver' },
+    { id: 'America/Los_Angeles', key: 'losAngeles' },
+    { id: 'America/Sao_Paulo', key: 'saoPaulo' },
+  ] },
+  { regionKey: 'oceania', zones: [
+    { id: 'Australia/Sydney', key: 'sydney' },
+    { id: 'Pacific/Auckland', key: 'auckland' },
+    { id: 'Pacific/Honolulu', key: 'honolulu' },
+  ] },
 ];
 
-const ALL_TIMEZONES: string[] = (() => {
-  const all = typeof Intl.supportedValuesOf === 'function'
-    ? Intl.supportedValuesOf('timeZone')
-    : [];
-  return [...COMMON_TIMEZONES, ...all.filter(z => !COMMON_TIMEZONES.includes(z))];
-})();
+// 取得指定時區在 date 當下的 UTC offset 標示（如 UTC+8、UTC-4、UTC+5:30）。DST 正確。
+function tzOffsetLabel(date: Date, timeZone: string): string {
+  try {
+    const name = new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'shortOffset' })
+      .formatToParts(date)
+      .find(p => p.type === 'timeZoneName')?.value ?? '';
+    const normalized = name.replace('GMT', 'UTC');
+    return normalized === 'UTC' ? 'UTC+0' : normalized;
+  } catch {
+    return '';
+  }
+}
 
 function parseTimestamp(raw: string): { date: Date; unit: 's' | 'ms' } | null {
   const n = Number(raw.trim());
@@ -117,19 +150,23 @@ export default function EpochConverterTool() {
             <p className="text-xs text-text-muted">{t('autoDetected')}: {parsed.unit === 's' ? t('seconds') : t('milliseconds')}</p>
             <ResultRow label={t('localTime')} value={formatDateTime(parsed.date, false)} mono />
             <div className="flex items-center justify-between gap-3 p-3 bg-surface-secondary border border-border rounded">
-              <input
-                type="text"
-                list="tz-list"
+              <select
                 value={tz}
                 onChange={e => setTz(e.target.value)}
-                placeholder={t('timezonePlaceholder')}
                 aria-label={t('selectedTimezone')}
-                className="shrink-0 w-40 p-1.5 bg-surface-primary border border-border rounded text-xs font-mono text-text-primary placeholder-text-muted focus:outline-none focus:border-accent transition-colors"
-              />
-              <datalist id="tz-list">
-                {ALL_TIMEZONES.map(z => <option key={z} value={z} />)}
-              </datalist>
-              <span className="text-sm text-text-primary truncate font-mono">{formatInTimeZone(parsed.date, tz) || t('invalidTimezone')}</span>
+                className="shrink-0 max-w-[55%] p-1.5 bg-surface-primary border border-border rounded text-xs text-text-primary focus:outline-none focus:border-accent transition-colors"
+              >
+                {TZ_GROUPS.map(group => (
+                  <optgroup key={group.regionKey} label={t(`tz.regions.${group.regionKey}`)}>
+                    {group.zones.map(z => (
+                      <option key={z.id} value={z.id}>
+                        {t(`tz.zones.${z.key}`)} ({tzOffsetLabel(parsed.date, z.id)})
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+              <span className="text-sm text-text-primary truncate font-mono">{formatInTimeZone(parsed.date, tz)}</span>
               <CopyButton text={formatInTimeZone(parsed.date, tz)} />
             </div>
           </div>
